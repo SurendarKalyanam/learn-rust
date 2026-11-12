@@ -1,10 +1,12 @@
 pub mod enums;
-pub mod structs;
 pub mod log;
+pub mod structs;
+pub mod tuts;
 
 use enums::index::Output;
-use structs::index::{Product, User};
 use log::console_log;
+use structs::index::{Product, User};
+use tuts::rust_101_tuts;
 
 fn main() {
     let surendar = User {
@@ -12,11 +14,13 @@ fn main() {
         age: 12,
     };
 
-    let product = Product {
+    let iphone = Product {
         product_name: String::from("IPhone"),
         id: 1,
     };
 
-    console_log(Output::Product(product));
+    console_log(Output::Product(iphone));
     console_log(Output::User(surendar));
+
+    rust_101_tuts();
 }
