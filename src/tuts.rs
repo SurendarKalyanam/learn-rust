@@ -37,4 +37,15 @@ pub fn rust_101_tuts() {
     println!("{}", i8::MAX);
     println!("{}", i8::MIN);
     println!("{}", 1_00_000);
+
+    let letter: char = 'D';
+    println!("letter={}", letter);
+
+    //tuple
+
+    let data = ("Surendar", 13, false);
+    let (name, age, is_drive): (&str, u8, bool) = ("Sudhakar", 10, false);
+    println!("data={:?}", data);
+    println!("{name}, {age}, {is_drive}");
+    println!("{:?}", data.0);
 }
