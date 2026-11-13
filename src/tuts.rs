@@ -48,4 +48,16 @@ pub fn rust_101_tuts() {
     println!("data={:?}", data);
     println!("{name}, {age}, {is_drive}");
     println!("{:?}", data.0);
+    println!("{:#?}", i8::MAX);
+
+    // arrays
+
+    let numbers = [2, 3, 4, 5];
+    println!("numbers={:?}", numbers);
+
+    let repeat = ["yama"; 5];
+    println!("repeat={:?}", repeat);
+
+    let first_number = numbers[0];
+    println!("first_number={:?}", first_number);
 }
