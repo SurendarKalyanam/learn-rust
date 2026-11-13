@@ -60,4 +60,18 @@ pub fn rust_101_tuts() {
 
     let first_number = numbers[0];
     println!("first_number={:?}", first_number);
+
+    fn say_hi(name: &str) {
+        println!("Hi {}...", name);
+    }
+
+    say_hi("Surendar");
+    say_hi("Kalpana");
+
+    fn repeat_name(name: &str, times: usize) {
+        println!("{}", name.repeat(times));
+    }
+
+    repeat_name("example ", 3);
+    dbg!(repeat);
 }
