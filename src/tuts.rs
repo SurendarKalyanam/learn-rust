@@ -74,4 +74,23 @@ pub fn rust_101_tuts() {
 
     repeat_name("example ", 3);
     dbg!(repeat);
+
+    // statements vs expression.
+    // if code returns value is called expression otherwise
+    // it called statement.
+
+    let name = "Lakshan";
+    let pn = println!("My Fav name is: {name}");
+    println!("{:?}", pn);
+    let dbg_value = dbg!(90 + 20);
+    println!("{dbg_value}");
+
+    let sum = {
+        let x = 10;
+        let y = 10;
+
+        x + y
+    };
+
+    println!("sum={}", sum);
 }
