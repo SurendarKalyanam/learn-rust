@@ -93,4 +93,61 @@ pub fn rust_101_tuts() {
     };
 
     println!("sum={}", sum);
+
+    // controlflow...
+
+    fn check_password_length(password: &str) {
+        let length = password.chars().count();
+        if length >= 10 {
+            println!("Password length is ok !...");
+        } else {
+            println!("Your password is not long enough ...");
+        }
+    }
+
+    check_password_length("password123");
+
+    // elseif
+
+    fn get_response(message: &str) -> &str {
+        let message = message.to_lowercase();
+        if message == "hello" {
+            "Hello"
+        } else if message == "vanakkam" {
+            "Vanakkam"
+        } else {
+            "I don't understand..."
+        }
+    }
+
+    println!("{}", get_response("Hello"));
+    println!("{}", get_response("Vanakkam"));
+    println!("{}", get_response("Hola"));
+
+    #[derive(Debug)]
+    struct Request {
+        url: String,
+        timeout: u32,
+    }
+
+    impl Request {
+        fn new(url: &str) -> Self {
+            Self {
+                url: url.to_lowercase(),
+                timeout: 30,
+            }
+        }
+        fn timeout(mut self, seconds: u32) -> Self {
+            self.timeout = seconds;
+            self
+        }
+
+        fn send(self) {
+            println!("URL = {} and Timeout = {}", self.url, self.timeout);
+        }
+    }
+
+    Request::new("https://google.co.in").timeout(40).send();
+
+    println!("{:#?}", Request::new("https://google.co.in"))
 }
