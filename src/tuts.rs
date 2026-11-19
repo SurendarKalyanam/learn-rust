@@ -216,4 +216,23 @@ pub fn rust_101_tuts() {
     for name in names {
         dbg!(name);
     }
+
+    let mut main_count = 0;
+
+    'main: loop {
+        println!("Outer loop or Main loop: {main_count}");
+        let mut inner_count = 0;
+        'inner: loop {
+            println!("inner loop: {inner_count}");
+            if inner_count == 3 {
+                break 'inner;
+            }
+            inner_count += 1;
+
+            if main_count == 3 {
+                break 'main;
+            }
+        }
+        main_count += 1;
+    }
 }
