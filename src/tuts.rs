@@ -131,7 +131,8 @@ pub fn rust_101_tuts() {
     }
 
     impl Request {
-        fn new(url: &str) -> Self { // Associated Function
+        fn new(url: &str) -> Self {
+            // Associated Function
             Self {
                 url: url.to_lowercase(),
                 timeout: 30,
@@ -180,5 +181,17 @@ pub fn rust_101_tuts() {
 
     Product::new("Iphone").purchase(true).show_status();
 
-    
+    // loop
+
+    let mut count = 10;
+
+    let result_of_loop = loop {
+        println!("Countdown {}", count);
+        count -= 1;
+        if count == 0 {
+            break "COUNTDOWN DONE";
+        }
+    };
+
+    println!("{}", result_of_loop);
 }
