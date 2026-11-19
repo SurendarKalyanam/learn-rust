@@ -194,4 +194,18 @@ pub fn rust_101_tuts() {
     };
 
     println!("{}", result_of_loop);
+
+    // while loop
+
+    let mut while_loop_count = 6;
+
+    while while_loop_count > 0 {
+        while_loop_count -= 1;
+
+        if while_loop_count == 3 {
+            println!("Skip 3");
+            continue;
+        }
+        println!("While Loop {while_loop_count}");
+    }
 }
