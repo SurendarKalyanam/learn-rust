@@ -131,7 +131,7 @@ pub fn rust_101_tuts() {
     }
 
     impl Request {
-        fn new(url: &str) -> Self {
+        fn new(url: &str) -> Self { // Associated Function
             Self {
                 url: url.to_lowercase(),
                 timeout: 30,
@@ -149,5 +149,36 @@ pub fn rust_101_tuts() {
 
     Request::new("https://google.co.in").timeout(40).send();
 
-    println!("{:#?}", Request::new("https://google.co.in"))
+    println!("{:#?}", Request::new("https://google.co.in"));
+
+    #[derive(Debug)]
+    struct Product {
+        name: String,
+        is_purchased: bool,
+    }
+
+    impl Product {
+        fn new(name: &str) -> Self {
+            Self {
+                name: name.to_string(),
+                is_purchased: false,
+            }
+        }
+
+        fn purchase(mut self: Self, is_purchased: bool) -> Self {
+            self.is_purchased = is_purchased;
+            self
+        }
+
+        fn show_status(self: Self) {
+            println!(
+                "Product Name {} and is available {}.",
+                self.name, self.is_purchased
+            );
+        }
+    }
+
+    Product::new("Iphone").purchase(true).show_status();
+
+    
 }
