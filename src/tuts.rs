@@ -208,4 +208,12 @@ pub fn rust_101_tuts() {
         }
         println!("While Loop {while_loop_count}");
     }
+
+    // for loop
+
+    let mut names = vec!["Surendar", "Sudhakar", "Puppy"];
+    names.push("Kalyanam");
+    for name in names {
+        dbg!(name);
+    }
 }
