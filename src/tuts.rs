@@ -171,15 +171,21 @@ pub fn rust_101_tuts() {
             self
         }
 
-        fn show_status(self: Self) {
+        fn show_status(self: Self) -> Self {
             println!(
                 "Product Name {} and is available {}.",
                 self.name, self.is_purchased
             );
+            self
+        }
+
+        fn log() {
+            println!("Log Product ....");
         }
     }
 
     Product::new("Iphone").purchase(true).show_status();
+    Product::log();
 
     // loop
 
@@ -234,5 +240,35 @@ pub fn rust_101_tuts() {
             }
         }
         main_count += 1;
+    }
+    //clone
+
+    let username_one = String::from("Surendar");
+    let username_two = username_one.clone();
+
+    dbg!(username_one);
+    dbg!(username_two);
+
+    fn set_brightness(brightness: Option<i32>) {
+        if let Some(value) = brightness {
+            println!("Brightness get the value {value}%");
+        }
+    }
+
+    set_brightness(Some(50));
+
+    enum Crypto {
+        Btc(i32),
+        Eth(i32),
+    }
+
+    let coin = Crypto::Btc(3);
+
+    if let Crypto::Btc(amount) = coin {
+        println!("your bitcoin is {amount}");
+    }
+
+    if let Crypto::Eth(amount) = Crypto::Eth(5) {
+        println!("Your Etherium is {amount}")
     }
 }
