@@ -1,5 +1,8 @@
 // youtube video playlist link => https://www.youtube.com/watch?v=jpjo1HW5Fnk&list=PLAscMa3kKhHjBYOTrT20kpYMNQX95KU6i&index=2
 
+use std::fs::File;
+use std::io::Read;
+
 pub fn rust_101_tuts() {
     println!("rust 101 tuts ...");
 
@@ -270,5 +273,21 @@ pub fn rust_101_tuts() {
 
     if let Crypto::Eth(amount) = Crypto::Eth(5) {
         println!("Your Etherium is {amount}")
+    }
+
+    // Error handling
+
+    // panic!("Custom or manual error");
+
+    let path = "./src/test.txt";
+    let txt = File::open(path);
+
+    match txt {
+        Ok(mut file) => {
+            let mut contents = String::new();
+            let _ = file.read_to_string(&mut contents);
+            println!("successfully read the content. {}", contents)
+        }
+        Err(e) => println!("{:?}", e),
     }
 }
