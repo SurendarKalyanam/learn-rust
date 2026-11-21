@@ -1,7 +1,7 @@
 // youtube video playlist link => https://www.youtube.com/watch?v=jpjo1HW5Fnk&list=PLAscMa3kKhHjBYOTrT20kpYMNQX95KU6i&index=2
 
 use std::fs::File;
-use std::io::Read;
+use std::io::{self, Read};
 
 pub fn rust_101_tuts() {
     println!("rust 101 tuts ...");
@@ -290,4 +290,27 @@ pub fn rust_101_tuts() {
         }
         Err(e) => println!("{:?}", e),
     }
+
+    // fn get_data() -> Result<String, io::Error> {
+    //     let mut data = String::new();
+    //     File::open("./src/test.txt")?.read_to_string(&mut data)?;
+    //     Ok(data)
+    // }
+
+    // dbg!(get_data());
+
+    // Vector
+
+    let mut players = vec!["Virat", "Yuvi", "Dhoni"];
+    players.push("Surendar");
+
+    dbg!(players);
+
+    // format...
+    let s1 = String::from("Surendar");
+    let s2 = String::from("Yama");
+    let s3 = String::from("Kalyanam");
+
+    let s4 = format!("{s1}-{s2}-{s3}");
+    dbg!(s4, s1);
 }
