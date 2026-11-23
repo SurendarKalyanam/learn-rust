@@ -1,7 +1,8 @@
 // youtube video playlist link => https://www.youtube.com/watch?v=jpjo1HW5Fnk&list=PLAscMa3kKhHjBYOTrT20kpYMNQX95KU6i&index=2
 
+use std::collections::HashMap;
 use std::fs::File;
-use std::io::{self, Read};
+use std::io::Read;
 
 pub fn rust_101_tuts() {
     println!("rust 101 tuts ...");
@@ -313,4 +314,51 @@ pub fn rust_101_tuts() {
 
     let s4 = format!("{s1}-{s2}-{s3}");
     dbg!(s4, s1);
+
+    let mut scores = HashMap::new();
+    scores.insert(String::from("Surendar"), 90);
+    scores.insert(String::from("Sudhakar"), 100);
+
+    // dbg!(scores);
+    // let scores = scores.get("Surendar").copied().unwrap_or(0);
+    // dbg!(scores);
+
+    for (k, v) in &scores {
+        println!("{k} score is {v}");
+    }
+
+    trait Log {
+        fn log(&self) -> String;
+    }
+
+    struct Cricketer {
+        name: String,
+    }
+
+    struct Youtuber {
+        name: String,
+    }
+
+    impl Log for Cricketer {
+        fn log(&self) -> String {
+            format!("Cricketer Name is: {}", self.name)
+        }
+    }
+
+    impl Log for Youtuber {
+        fn log(&self) -> String {
+            format!("Youtuber Name is: {}", self.name)
+        }
+    }
+
+    let cricketer = Cricketer {
+        name: String::from("Virat"),
+    };
+
+    let youtuber = Youtuber {
+        name: String::from("Theo"),
+    };
+
+    dbg!(cricketer.log());
+    dbg!(youtuber.log());
 }
