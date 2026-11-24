@@ -1,6 +1,7 @@
 // youtube video playlist link => https://www.youtube.com/watch?v=jpjo1HW5Fnk&list=PLAscMa3kKhHjBYOTrT20kpYMNQX95KU6i&index=2
 
 use std::collections::HashMap;
+use std::fmt::{Debug, Display};
 use std::fs::File;
 use std::io::Read;
 
@@ -361,4 +362,41 @@ pub fn rust_101_tuts() {
 
     dbg!(cricketer.log());
     dbg!(youtuber.log());
+
+    fn func<T: Display + Clone, U: Clone + Debug>() -> i32 {
+        unimplemented!()
+    }
+
+    fn func2<T, U>(t: &T, u: &U) -> i32
+    where
+        T: Display + Clone,
+        U: Clone + Debug,
+    {
+        unimplemented!()
+    }
+
+    pub trait Summary {
+        fn summarize(&self) -> String;
+    }
+
+    struct Tweet {
+        content: String,
+        username: String,
+    }
+
+    impl Summary for Tweet {
+        fn summarize(&self) -> String {
+            format!("{} is {}", self.username, self.content)
+        }
+    }
+
+    fn returns_summarizabke() -> impl Summary {
+        Tweet {
+            content: "Learning Rust Programming Language".to_string(),
+            username: "SurendarYama".to_string(),
+        }
+    }
+
+    let item = returns_summarizabke();
+    println!("{:?}", item.summarize());
 }
